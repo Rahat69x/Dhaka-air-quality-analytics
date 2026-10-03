@@ -1,0 +1,301 @@
+{
+  "overall": {
+    "total_calendar_days": 1922,
+    "valid_compliant_days": 1781,
+    "completeness_pct": 92.66,
+    "date_start": "2016-01-01",
+    "date_end": "2021-06-01",
+    "mean_pm25": 87.52,
+    "std_pm25": 65.48,
+    "median_pm25": 61.38,
+    "min_pm25": 4.83,
+    "max_pm25": 340.79,
+    "q25_pm25": 35.96,
+    "q75_pm25": 130.88,
+    "iqr_pm25": 94.92
+  },
+  "exceedance": {
+    "who_2021_limit_ugm3": 15.0,
+    "who_exceed_days": 1739,
+    "who_exceed_pct": 97.64,
+    "bd_2022_limit_ugm3": 65.0,
+    "bd_exceed_days": 851,
+    "bd_exceed_pct": 47.78
+  },
+  "aqi_categories": {
+    "epa_2024": {
+      "Good": 6,
+      "Moderate": 431,
+      "Unhealthy for Sensitive Groups": 379,
+      "Unhealthy": 475,
+      "Very Unhealthy": 417,
+      "Hazardous": 73
+    },
+    "epa_pre2024": {
+      "Good": 16,
+      "Moderate": 421,
+      "Unhealthy for Sensitive Groups": 379,
+      "Unhealthy": 631,
+      "Very Unhealthy": 293,
+      "Hazardous": 41
+    },
+    "bd_doe": {
+      "Good": 42,
+      "Moderate": 889,
+      "Caution": 84,
+      "Unhealthy": 431,
+      "Very Unhealthy": 330,
+      "Extremely Unhealthy": 5
+    }
+  },
+  "seasonality": {
+    "Winter": {
+      "days": 436,
+      "mean_pm25": 172.84,
+      "median_pm25": 167.77,
+      "std_pm25": 51.09,
+      "min_pm25": 14.21,
+      "max_pm25": 340.79,
+      "exceed_who_pct": 99.77,
+      "exceed_bd_pct": 97.71
+    },
+    "Pre-Monsoon": {
+      "days": 525,
+      "mean_pm25": 76.47,
+      "median_pm25": 63.0,
+      "std_pm25": 43.46,
+      "min_pm25": 11.74,
+      "max_pm25": 320.3,
+      "exceed_who_pct": 99.81,
+      "exceed_bd_pct": 47.05
+    },
+    "Monsoon": {
+      "days": 554,
+      "mean_pm25": 32.99,
+      "median_pm25": 31.5,
+      "std_pm25": 13.3,
+      "min_pm25": 4.83,
+      "max_pm25": 80.58,
+      "exceed_who_pct": 94.04,
+      "exceed_bd_pct": 3.07
+    },
+    "Post-Monsoon": {
+      "days": 266,
+      "mean_pm25": 83.02,
+      "median_pm25": 73.4,
+      "std_pm25": 44.25,
+      "min_pm25": 10.25,
+      "max_pm25": 248.83,
+      "exceed_who_pct": 97.37,
+      "exceed_bd_pct": 60.53
+    }
+  },
+  "diurnal": {
+    "peak_hour_local_bst": 23,
+    "peak_mean_pm25": 103.9,
+    "lowest_hour_local_bst": 16,
+    "lowest_mean_pm25": 58.73,
+    "diurnal_ratio_peak_to_lowest": 1.77
+  },
+  "day_of_week": {
+    "weekday_mean_pm25": 88.22,
+    "weekend_mean_pm25": 85.74,
+    "weekend_difference_pct": -2.82
+  },
+  "year_over_year": {
+    "2016": {
+      "valid_days": 305,
+      "annual_mean_pm25": 67.9,
+      "annual_median_pm25": 49.17,
+      "exceed_bd_days": 108,
+      "exceed_bd_pct": 35.41
+    },
+    "2017": {
+      "valid_days": 352,
+      "annual_mean_pm25": 79.71,
+      "annual_median_pm25": 55.6,
+      "exceed_bd_days": 144,
+      "exceed_bd_pct": 40.91
+    },
+    "2018": {
+      "valid_days": 268,
+      "annual_mean_pm25": 100.31,
+      "annual_median_pm25": 84.39,
+      "exceed_bd_days": 150,
+      "exceed_bd_pct": 55.97
+    },
+    "2019": {
+      "valid_days": 359,
+      "annual_mean_pm25": 86.38,
+      "annual_median_pm25": 65.92,
+      "exceed_bd_days": 183,
+      "exceed_bd_pct": 50.97
+    },
+    "2020": {
+      "valid_days": 352,
+      "annual_mean_pm25": 84.63,
+      "annual_median_pm25": 57.44,
+      "exceed_bd_days": 159,
+      "exceed_bd_pct": 45.17
+    }
+  },
+  "anomalies": {
+    "total_flagged_anomalies": 27,
+    "positive_spikes_count": 25,
+    "negative_dips_count": 2,
+    "top_spikes": [
+      {
+        "date": "2021-01-19",
+        "pm25_mean": 340.8,
+        "z_score": 2.89,
+        "season": "Winter"
+      },
+      {
+        "date": "2021-03-16",
+        "pm25_mean": 320.3,
+        "z_score": 2.63,
+        "season": "Pre-Monsoon"
+      },
+      {
+        "date": "2021-03-21",
+        "pm25_mean": 318.4,
+        "z_score": 2.56,
+        "season": "Pre-Monsoon"
+      },
+      {
+        "date": "2020-02-20",
+        "pm25_mean": 273.8,
+        "z_score": 2.67,
+        "season": "Winter"
+      },
+      {
+        "date": "2016-12-24",
+        "pm25_mean": 273.1,
+        "z_score": 2.55,
+        "season": "Winter"
+      }
+    ]
+  },
+  "stations": [
+    {
+      "station_id": "rangpur_cams",
+      "station_name": "Rangpur",
+      "readings": 465,
+      "mean_aqi": 191.8,
+      "median_aqi": 181.0,
+      "max_aqi": 488.0
+    },
+    {
+      "station_id": "mymensingh_cams",
+      "station_name": "Mymensingh",
+      "readings": 453,
+      "mean_aqi": 184.3,
+      "median_aqi": 173.0,
+      "max_aqi": 448.0
+    },
+    {
+      "station_id": "dhaka_cams_3",
+      "station_name": "Dhaka (CAMS-3 Darus Salam)",
+      "readings": 696,
+      "mean_aqi": 179.6,
+      "median_aqi": 155.5,
+      "max_aqi": 524.0
+    },
+    {
+      "station_id": "narayanganj_cams",
+      "station_name": "Narayanganj",
+      "readings": 2272,
+      "mean_aqi": 179.5,
+      "median_aqi": 137.0,
+      "max_aqi": 640.0
+    },
+    {
+      "station_id": "dhaka_cams_2",
+      "station_name": "Dhaka (CAMS-2 Farmgate)",
+      "readings": 739,
+      "mean_aqi": 169.2,
+      "median_aqi": 143.0,
+      "max_aqi": 557.0
+    },
+    {
+      "station_id": "gazipur_cams",
+      "station_name": "Gazipur",
+      "readings": 2292,
+      "mean_aqi": 165.2,
+      "median_aqi": 136.0,
+      "max_aqi": 548.0
+    },
+    {
+      "station_id": "dhaka_cams_1",
+      "station_name": "Dhaka (CAMS-1 Manik Mia Ave)",
+      "readings": 1106,
+      "mean_aqi": 158.2,
+      "median_aqi": 131.0,
+      "max_aqi": 477.0
+    },
+    {
+      "station_id": "savar_cams",
+      "station_name": "Savar",
+      "readings": 186,
+      "mean_aqi": 154.8,
+      "median_aqi": 114.5,
+      "max_aqi": 391.0
+    },
+    {
+      "station_id": "barisal_cams",
+      "station_name": "Barisal",
+      "readings": 2195,
+      "mean_aqi": 137.6,
+      "median_aqi": 110.0,
+      "max_aqi": 407.0
+    },
+    {
+      "station_id": "rajshahi_cams",
+      "station_name": "Rajshahi",
+      "readings": 2029,
+      "mean_aqi": 134.3,
+      "median_aqi": 118.0,
+      "max_aqi": 638.0
+    },
+    {
+      "station_id": "narsingdi_cams",
+      "station_name": "Narsingdi",
+      "readings": 374,
+      "mean_aqi": 133.0,
+      "median_aqi": 134.0,
+      "max_aqi": 373.0
+    },
+    {
+      "station_id": "cumilla_cams",
+      "station_name": "Cumilla",
+      "readings": 492,
+      "mean_aqi": 122.5,
+      "median_aqi": 111.5,
+      "max_aqi": 337.0
+    },
+    {
+      "station_id": "chittagong_cams",
+      "station_name": "Chittagong",
+      "readings": 2278,
+      "mean_aqi": 121.9,
+      "median_aqi": 104.0,
+      "max_aqi": 556.0
+    },
+    {
+      "station_id": "khulna_cams",
+      "station_name": "Khulna",
+      "readings": 1176,
+      "mean_aqi": 120.9,
+      "median_aqi": 89.5,
+      "max_aqi": 498.0
+    },
+    {
+      "station_id": "sylhet_cams",
+      "station_name": "Sylhet",
+      "readings": 2077,
+      "mean_aqi": 105.3,
+      "median_aqi": 87.0,
+      "max_aqi": 446.0
+    }
+  ]
+}

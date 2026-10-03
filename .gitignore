@@ -1,0 +1,35 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+*/.ipynb_checkpoints/*
+
+# Virtual environments
+.env
+.venv
+env/
+venv/
+ENV/
+
+# Large raw datasets (track metadata, raw files > 100MB should be linked via data source)
+# data/raw/*.zip
+# data/raw/*.tar.gz
+
+# Power BI temporary & backup files
+*.tmp
+*.pbix.bak
+
+# OS generated files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+desktop.ini
+
+# Database & Credentials
+*.env
+.env.*
+secrets.json
+*.sqlite3

@@ -1,0 +1,140 @@
+// =====================================================================
+// Dhaka Air Quality Analytics - DAX Measures Library
+// File: powerbi/measures.dax
+// =====================================================================
+
+// ---------------------------------------------------------------------
+// 1. CORE VOLUME & COMPLETENESS MEASURES
+// ---------------------------------------------------------------------
+
+Total Readings = 
+COUNTROWS('fact_air_quality_daily')
+
+Valid Compliant Days = 
+CALCULATE(
+    COUNTROWS('fact_air_quality_daily'),
+    'fact_air_quality_daily'[qc_flag] = "VALID_DAY"
+)
+
+Completeness Percentage = 
+DIVIDE([Valid Compliant Days], [Total Readings], 0) * 100
+
+Active Stations Count = 
+DISTINCTCOUNT('dim_stations'[station_id])
+
+Total Monitored Cities = 
+DISTINCTCOUNT('dim_stations'[city])
+
+// ---------------------------------------------------------------------
+// 2. POLLUTANT CONCENTRATION MEASURES (PM2.5 ug/m3)
+// ---------------------------------------------------------------------
+
+Average PM25 = 
+CALCULATE(
+    AVERAGE('fact_air_quality_daily'[pm25_mean]),
+    'fact_air_quality_daily'[qc_flag] = "VALID_DAY"
+)
+
+Median PM25 = 
+CALCULATE(
+    MEDIAN('fact_air_quality_daily'[pm25_mean]),
+    'fact_air_quality_daily'[qc_flag] = "VALID_DAY"
+)
+
+Maximum PM25 = 
+CALCULATE(
+    MAX('fact_air_quality_daily'[pm25_mean]),
+    'fact_air_quality_daily'[qc_flag] = "VALID_DAY"
+)
+
+Minimum PM25 = 
+CALCULATE(
+    MIN('fact_air_quality_daily'[pm25_mean]),
+    'fact_air_quality_daily'[qc_flag] = "VALID_DAY"
+)
+
+StdDev PM25 = 
+CALCULATE(
+    STDEV.P('fact_air_quality_daily'[pm25_mean]),
+    'fact_air_quality_daily'[qc_flag] = "VALID_DAY"
+)
+
+// ---------------------------------------------------------------------
+// 3. AIR QUALITY INDEX (AQI) MEASURES
+// ---------------------------------------------------------------------
+
+Average AQI EPA 2024 = 
+CALCULATE(
+    AVERAGE('fact_air_quality_daily'[aqi_epa_2024]),
+    'fact_air_quality_daily'[qc_flag] = "VALID_DAY"
+)
+
+Average AQI EPA Classic = 
+CALCULATE(
+    AVERAGE('fact_air_quality_daily'[aqi_epa_pre2024]),
+    'fact_air_quality_daily'[qc_flag] = "VALID_DAY"
+)
+
+Average AQI BD DoE = 
+CALCULATE(
+    AVERAGE('fact_air_quality_daily'[aqi_bd_doe]),
+    'fact_air_quality_daily'[qc_flag] = "VALID_DAY"
+)
+
+Maximum AQI Recorded = 
+CALCULATE(
+    MAX('fact_air_quality_daily'[aqi_epa_2024]),
+    'fact_air_quality_daily'[qc_flag] = "VALID_DAY"
+)
+
+// ---------------------------------------------------------------------
+// 4. STATUTORY EXCEEDANCE MEASURES
+// ---------------------------------------------------------------------
+
+Days Above WHO Guideline = 
+CALCULATE(
+    COUNTROWS('fact_air_quality_daily'),
+    'fact_air_quality_daily'[qc_flag] = "VALID_DAY",
+    'fact_air_quality_daily'[pm25_mean] > 15.0
+)
+
+Pct Days Above WHO Guideline = 
+DIVIDE([Days Above WHO Guideline], [Valid Compliant Days], 0) * 100
+
+Days Above Bangladesh Standard = 
+CALCULATE(
+    COUNTROWS('fact_air_quality_daily'),
+    'fact_air_quality_daily'[qc_flag] = "VALID_DAY",
+    'fact_air_quality_daily'[pm25_mean] > 65.0
+)
+
+Pct Days Above Bangladesh Standard = 
+DIVIDE([Days Above Bangladesh Standard], [Valid Compliant Days], 0) * 100
+
+// ---------------------------------------------------------------------
+// 5. TIME INTELLIGENCE & WINDOW MEASURES
+// ---------------------------------------------------------------------
+
+Rolling 7 Day PM25 = 
+CALCULATE(
+    [Average PM25],
+    DATESINPERIOD('dim_dates'[full_date], LASTDATE('dim_dates'[full_date]), -7, DAY)
+)
+
+Rolling 30 Day PM25 = 
+CALCULATE(
+    [Average PM25],
+    DATESINPERIOD('dim_dates'[full_date], LASTDATE('dim_dates'[full_date]), -30, DAY)
+)
+
+PM25 Prior Year = 
+CALCULATE(
+    [Average PM25],
+    SAMEPERIODLASTYEAR('dim_dates'[full_date])
+)
+
+YoY Change PM25 = 
+[Average PM25] - [PM25 Prior Year]
+
+YoY Growth Pct PM25 = 
+DIVIDE([YoY Change PM25], [PM25 Prior Year], 0) * 100
